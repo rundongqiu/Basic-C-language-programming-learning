@@ -1,0 +1,56 @@
+//char *strcpy(char*des,char*src); 
+//将src指向的字符串拷贝到des指向的字符串数组中去，结束符也一同进行拷贝，size参数也可以拷贝制定长度的字符串，建议des为字符数组 注意:目标尽量使用字符数组，因为如果是字符指针的话，分配的内存在常量池中，是不允许进行改变的，容易造成段错误
+char *mystrcpy(char*des,char*src)
+{
+	int i=0;
+	
+	for(;*(src+i);i++)
+	{
+		*(des+i)=*(src+i);
+	}
+	*(des+i)=0;
+	return des;
+}
+//char * strcat(const *char str1,const *char str2); 
+//将str2指向的字符串连接到str1指向的字符后面，同时会删除str1后面的’\0’,返回的是str1指向字符串的首地址重点内容
+char * mystrcat(char* str1, char* str2)
+{
+	int i=0, j=0;
+	while(*(str1+i))
+		i++;
+	while(*(str2+j))
+	{
+		*(str1+i)=*(str2+j);
+		j++;i++;
+	}
+	*(str1+i)=0;
+	return str1;
+}
+char* MyStrcat(char *dst, const char *src)
+{
+    char *temp = dst;
+    while (*temp != '\0')
+        temp++;
+    while ((*temp++ = *src++) != '\0');
+
+    return dst;
+}
+
+//int strcmp(const char * str1,const char *str2); 
+int mystrcmp(char * str1, char *str2)
+{
+	int i=0;
+	for(;*(str1+i)==0||*(str2+i)==0;i++)
+	{
+		if(*(str1+i)-*(str2+i)==0)
+		{
+			;
+		}
+		else 
+		{
+			return (*(str1+i)-*(str2+i));
+		}
+		
+	}
+	return (*(str1+i)-*(str2+i));
+}
